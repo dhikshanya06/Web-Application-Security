@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Participant Record</title>
+</head>
+<body>
+    <h1>Delete Participant Record</h1>
+    <form action="ctfdelete.php" method="post">
+        <label for="participant_name">Participant Name:</label>
+        <input type="text" name="participant_name" id="participant_name" required><br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" required><br>
+        <label for="phone_number">Phone Number (for informational purposes only):</label>
+        <input type="tel" name="phone_number" id="phone_number"><br><br>
+        <button type="submit">Delete Record</button>
+    </form>
+</body>
+</html>

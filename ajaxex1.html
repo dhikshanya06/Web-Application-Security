@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX Example</title>
+</head>
+<body>
+
+    <button id="fetchButton">Fetch Products</button>
+    <div id="productInfo"></div>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', function() {
+            // Send AJAX request to PHP script
+            fetch('ajaxex1.php') 
+                // Convert response body to JSON
+                .then(response => response.json())
+                // Handle the JSON data
+                .then(data => {
+                    const productInfoDiv = document.getElementById('productInfo'); 
+                    productInfoDiv.innerHTML = '';
+                    
+                    // Loop through each product and display it
+                    data.forEach(product => {
+                        const productDiv = document.createElement('div');
+                        productDiv.innerHTML = `Name: ${product.name}, Price: $${product.price}`;
+                        productInfoDiv.appendChild(productDiv);
+                    });
+                })
+                // Handle any error
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+</body>
+</html>
